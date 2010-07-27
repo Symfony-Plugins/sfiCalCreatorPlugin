@@ -41,7 +41,12 @@ class sfiCalTodo extends vtodo {
         parent::__construct();
     }
 }
-class sfiCalJornal extends vjournal {
+class sfiCalJournal extends vjournal {
+    function __construct() {
+        parent::__construct();
+    }
+}
+class sfiCalAlarm extends valarm {
     function __construct() {
         parent::__construct();
     }
