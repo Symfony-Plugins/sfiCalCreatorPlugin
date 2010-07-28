@@ -6950,6 +6950,7 @@ class vevent extends calendarComponent {
 /**
  * create formatted output for calendar component VEVENT object instance
  *
+ * changed $object to VEVENT string <rigreyes@gmail.com>
  * @author Kjell-Inge Gustafsson <ical@kigkonsult.se>
  * @since 2.5.1 - 2008-11-07
  * @param array $xcaldecl
@@ -6957,7 +6958,7 @@ class vevent extends calendarComponent {
  */
   function createComponent( &$xcaldecl ) {
     $objectname    = $this->_createFormat();
-    $component     = $this->componentStart1.$objectname.$this->componentStart2.$this->nl;
+    $component     = $this->componentStart1.'VEVENT'.$this->componentStart2.$this->nl;
     $component    .= $this->createUid();
     $component    .= $this->createDtstamp();
     $component    .= $this->createAttach();
@@ -6991,7 +6992,7 @@ class vevent extends calendarComponent {
     $component    .= $this->createUrl();
     $component    .= $this->createXprop();
     $component    .= $this->createSubComponent();
-    $component    .= $this->componentEnd1.$objectname.$this->componentEnd2;
+    $component    .= $this->componentEnd1.'VEVENT'.$this->componentEnd2;
     if( is_array( $this->xcaldecl ) && ( 0 < count( $this->xcaldecl ))) {
       foreach( $this->xcaldecl as $localxcaldecl )
         $xcaldecl[] = $localxcaldecl;
@@ -7095,7 +7096,7 @@ class vtodo extends calendarComponent {
  */
   function createComponent( &$xcaldecl ) {
     $objectname    = $this->_createFormat();
-    $component     = $this->componentStart1.$objectname.$this->componentStart2.$this->nl;
+    $component     = $this->componentStart1.'VTODO'.$this->componentStart2.$this->nl;
     $component    .= $this->createUid();
     $component    .= $this->createDtstamp();
     $component    .= $this->createAttach();
@@ -7130,7 +7131,7 @@ class vtodo extends calendarComponent {
     $component    .= $this->createUrl();
     $component    .= $this->createXprop();
     $component    .= $this->createSubComponent();
-    $component    .= $this->componentEnd1.$objectname.$this->componentEnd2;
+    $component    .= $this->componentEnd1.'VTODO'.$this->componentEnd2;
     if( is_array( $this->xcaldecl ) && ( 0 < count( $this->xcaldecl ))) {
       foreach( $this->xcaldecl as $localxcaldecl )
         $xcaldecl[] = $localxcaldecl;
@@ -7214,7 +7215,7 @@ class vjournal extends calendarComponent {
  */
   function createComponent( &$xcaldecl ) {
     $objectname = $this->_createFormat();
-    $component  = $this->componentStart1.$objectname.$this->componentStart2.$this->nl;
+    $component  = $this->componentStart1.'VJOURNAL'.$this->componentStart2.$this->nl;
     $component .= $this->createUid();
     $component .= $this->createDtstamp();
     $component .= $this->createAttach();
@@ -7240,7 +7241,7 @@ class vjournal extends calendarComponent {
     $component .= $this->createSummary();
     $component .= $this->createUrl();
     $component .= $this->createXprop();
-    $component .= $this->componentEnd1.$objectname.$this->componentEnd2;
+    $component .= $this->componentEnd1.'VJOURNAL'.$this->componentEnd2;
     if( is_array( $this->xcaldecl ) && ( 0 < count( $this->xcaldecl ))) {
       foreach( $this->xcaldecl as $localxcaldecl )
         $xcaldecl[] = $localxcaldecl;
@@ -7302,7 +7303,7 @@ class vfreebusy extends calendarComponent {
  */
   function createComponent( &$xcaldecl ) {
     $objectname = $this->_createFormat();
-    $component  = $this->componentStart1.$objectname.$this->componentStart2.$this->nl;
+    $component  = $this->componentStart1.'VFREEBUSY'.$this->componentStart2.$this->nl;
     $component .= $this->createUid();
     $component .= $this->createDtstamp();
     $component .= $this->createAttendee();
@@ -7316,7 +7317,7 @@ class vfreebusy extends calendarComponent {
     $component .= $this->createRequestStatus();
     $component .= $this->createUrl();
     $component .= $this->createXprop();
-    $component .= $this->componentEnd1.$objectname.$this->componentEnd2;
+    $component .= $this->componentEnd1.'VFREEBUSY'.$this->componentEnd2;
     if( is_array( $this->xcaldecl ) && ( 0 < count( $this->xcaldecl ))) {
       foreach( $this->xcaldecl as $localxcaldecl )
         $xcaldecl[] = $localxcaldecl;
@@ -7372,7 +7373,7 @@ class valarm extends calendarComponent {
  */
   function createComponent( &$xcaldecl ) {
     $objectname    = $this->_createFormat();
-    $component     = $this->componentStart1.$objectname.$this->componentStart2.$this->nl;
+    $component     = $this->componentStart1.'VALARM'.$this->componentStart2.$this->nl;
     $component    .= $this->createAction();
     $component    .= $this->createAttach();
     $component    .= $this->createAttendee();
@@ -7382,7 +7383,7 @@ class valarm extends calendarComponent {
     $component    .= $this->createSummary();
     $component    .= $this->createTrigger();
     $component    .= $this->createXprop();
-    $component    .= $this->componentEnd1.$objectname.$this->componentEnd2;
+    $component    .= $this->componentEnd1.'VALARM'.$this->componentEnd2;
     return $component;
   }
 }
@@ -7449,7 +7450,7 @@ class vtimezone extends calendarComponent {
  */
   function createComponent( &$xcaldecl ) {
     $objectname    = $this->_createFormat();
-    $component     = $this->componentStart1.$objectname.$this->componentStart2.$this->nl;
+    $component     = $this->componentStart1.'VTIMEZONE'.$this->componentStart2.$this->nl;
     $component    .= $this->createTzid();
     $component    .= $this->createLastModified();
     $component    .= $this->createTzurl();
@@ -7462,7 +7463,7 @@ class vtimezone extends calendarComponent {
     $component    .= $this->createTzname();
     $component    .= $this->createXprop();
     $component    .= $this->createSubComponent();
-    $component    .= $this->componentEnd1.$objectname.$this->componentEnd2;
+    $component    .= $this->componentEnd1.'VTIMEZONE'.$this->componentEnd2;
     if( is_array( $this->xcaldecl ) && ( 0 < count( $this->xcaldecl ))) {
       foreach( $this->xcaldecl as $localxcaldecl )
         $xcaldecl[] = $localxcaldecl;
